@@ -9,6 +9,7 @@ import Loans from "./pages/Loans";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MainLayout from "./layouts/MainLayout";
+import NewCard from "./pages/NewCard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               {/* <Route path="/Transactions" element={<Transactions />} /> */}
               <Route path="/loans" element={<Loans />} />
               {/* <Route path="" element={<Error404 />} /> */}
+              <Route path="/formcard" element={<NewCard />} />
             </Routes>
         </MainLayout>
       </BrowserRouter>
