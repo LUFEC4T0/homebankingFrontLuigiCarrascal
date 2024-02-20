@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const CardAccount = ({account}) => {
   return (
@@ -8,7 +9,7 @@ const CardAccount = ({account}) => {
           <p className='pl-2'>Balance: <span className='font-bold text-lg'>${account.balance}</span></p>
           <p className='pl-2'>Creation Date: <span className='font-bold text-lg'>{account.creationDate}</span></p>
           <p className='pl-2'>number of transactions: <span className='font-bold text-lg'>{account.transactions.length}</span></p>
-          <button className='bg-slate-900 text-white py-2 w-40 rounded-lg'>view transactions</button>
+          <Link to={`/transactions/${account.id}`} className='bg-slate-900 text-white py-2 w-40 rounded-lg text-center'>view transactions</Link>
         </div>
     </div>
   )

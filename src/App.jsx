@@ -11,6 +11,8 @@ import Footer from "./components/Footer";
 import MainLayout from "./layouts/MainLayout";
 import NewCard from "./pages/NewCard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NewLoans from "./pages/NewLoans";
+import ViewTransactions from "./pages/ViewTransactions";
 function App() {
   return (
     <>
@@ -23,6 +25,8 @@ function App() {
               <Route path="/loans" element={<Loans />} />
               {/* <Route path="" element={<Error404 />} /> */}
               <Route path="/formcard" element={<NewCard />} />
+              <Route path="formloan" element={<NewLoans />} />
+              <Route path='/transactions/:id' element={<ViewTransactions />} />
             </Routes>
         </MainLayout>
       </BrowserRouter>
