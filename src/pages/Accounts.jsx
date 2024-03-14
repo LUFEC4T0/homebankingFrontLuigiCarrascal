@@ -1,18 +1,39 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import CardAccount from "../components/CardAccount";
 import clientsFetch from "../utils/clientsFetch";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import authActions from "../redux/actions/auth.actions";
+import { current } from "@reduxjs/toolkit";
+
 
 
 const Accounts = () => {
-  const [clients, setClients] = useState({});
+  const [clients, setClients] = useState();
+  const user = useSelector((store) => store.authReducer.user);
+  const dispatch = useDispatch();
+  const { login, current } = authActions;
+
   useEffect(() => {
-      clientsFetch() 
-        .then(data => setClients(data))
-        .catch((error) => console.log("Error: ", error));
+    const token = localStorage.getItem("token");
+
+    if (!user.loggedin && !!token) {
+      axios.get("http://localhost:8080/api/clients/current", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      })
+        .then(response => {
+          dispatch(current(response.data));
+          setClients(response.data);
+        })
+        .catch(error => console.log(error));
+    }
+
   }, []);
 
-  // console.log(clients)
+  console.log(clients)
 
   return (
     <div className="bg-gray-500 flex flex-1 flex-col justify-center items-center">

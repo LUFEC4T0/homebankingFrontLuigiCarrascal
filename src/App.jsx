@@ -10,26 +10,28 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MainLayout from "./layouts/MainLayout";
 import NewCard from "./pages/NewCard";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 import NewLoans from "./pages/NewLoans";
 import ViewTransactions from "./pages/ViewTransactions";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 function App() {
   return (
     <>
-      <BrowserRouter>
         <MainLayout>
             <Routes>
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
               <Route path="/accounts" element={<Accounts />} />
               <Route path="/cards" element={<Cards />} />
               {/* <Route path="/Transactions" element={<Transactions />} /> */}
               <Route path="/loans" element={<Loans />} />
               {/* <Route path="" element={<Error404 />} /> */}
               <Route path="/formcard" element={<NewCard />} />
-              <Route path="formloan" element={<NewLoans />} />
+              <Route path="/formloan" element={<NewLoans />} />
               <Route path='/transactions/:id' element={<ViewTransactions />} />
             </Routes>
         </MainLayout>
-      </BrowserRouter>
     </>
   );
 }

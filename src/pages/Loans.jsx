@@ -2,14 +2,33 @@ import React from 'react'
 import CardLoan from '../components/CardLoan';
 import clientsFetch from '../utils/clientsFetch';
 import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import authActions from '../redux/actions/auth.actions';
+import axios from 'axios';
 
 const Loans = () => {
 
   const [clients, setClients] = useState({});
+  const user = useSelector((store) => store.authReducer.user);
+  const dispatch = useDispatch();
+  const { login, current } = authActions;
+
   useEffect(() => {
-      clientsFetch() 
-        .then(data => setClients(data))
-        .catch((error) => console.log("Error: ", error));
+    const token = localStorage.getItem("token");
+
+    if (!user.loggedin && !!token) {
+      axios.get("http://localhost:8080/api/clients/current", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      })
+        .then(response => {
+          dispatch(current(response.data));
+          setClients(response.data);
+        })
+        .catch(error => console.log(error));
+    }
+
   }, []);
 
  console.log(clients)
