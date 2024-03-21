@@ -58,6 +58,13 @@
 }
 
 .active{
-  background-color: rgb(67 56 202);
+  border-style: solid;
+  border-bottom-width: 3px;
+  color: white;
+}
+
+.active:hover{
+  border-style: solid;
+  border-bottom-width: 3px;
   color: white;
 }

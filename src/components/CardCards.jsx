@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
-const CardCards = ({card}) => {
-    return (
-      <div class="card">
+const CardCards = ({ card }) => {
+  return (
+    <div class="card sm:w-[18rem] sm:h-[10rem]">
       <div class="flex justify-between">
         <div class="chip"></div>
         <img
@@ -17,7 +17,7 @@ const CardCards = ({card}) => {
         <span className="m-5">CVV {card.cvv}</span>
       </div>
     </div>
-    )
-  }
+  );
+};
 
-export default CardCards
+export default CardCards;

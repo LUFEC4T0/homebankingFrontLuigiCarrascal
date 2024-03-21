@@ -1,10 +1,14 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export const Anchor = ({ href, content}) => {
+export const Anchor = ({ href, content, isClose}) => {
+  const handleLinkClick = () => {
+    isClose();
+  }
+
   return (
    <>
-    <NavLink className="bg-gray-50 hover:bg-indigo-700 hover:text-white text-gray-950 px-4 py-1 rounded-lg" to={href} >{content}</NavLink>
+    <NavLink className="text-white py-2 hover:border-b-[3px] hover:border-b-white sm:pb-[0.1rem]" to={href} onClick={handleLinkClick}>{content}</NavLink>
    </>
   ) 
 } 

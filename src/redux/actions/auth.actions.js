@@ -17,11 +17,20 @@ const login = createAction("LOGIN", (token) => {
             timestamps: Date.now(),
         }
     }
-})
+});
+
+const logout = createAction("LOGOUT", () => {
+    localStorage.removeItem("token");
+    return {
+        payload: null
+    }
+});
+
 
 const actions = {
     current,
-    login
+    login,
+    logout
 }
 
 export default actions;

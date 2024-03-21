@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import authActions from "../actions/auth.actions";
-const {login, current} = authActions
+const {login, current, logout} = authActions
 
 const initialState = {
     user: {
@@ -26,6 +26,9 @@ const authReducer = createReducer(initialState, (builder) => {
                 user: action.payload
             }
         })
+        .addCase(logout, (state, action) => {
+            return initialState;
+        });
 })
 
 export default authReducer;

@@ -7,11 +7,9 @@ const MainLayout = (props) => {
   return (
     <>
       <div className="flex flex-col justify-between w-screen h-screen">
-        <Header />
           {
             props.children
           }
-        <Footer />
       </div>
     </>
   );

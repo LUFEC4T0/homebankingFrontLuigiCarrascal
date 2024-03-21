@@ -8,15 +8,14 @@ import axios from 'axios';
 
 const Loans = () => {
 
-  const [clients, setClients] = useState({});
+  // const [clients, setClients] = useState({});
   const user = useSelector((store) => store.authReducer.user);
   const dispatch = useDispatch();
   const { login, current } = authActions;
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-
-    if (!user.loggedin && !!token) {
+    
       axios.get("http://localhost:8080/api/clients/current", {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -24,24 +23,20 @@ const Loans = () => {
       })
         .then(response => {
           dispatch(current(response.data));
-          setClients(response.data);
         })
         .catch(error => console.log(error));
-    }
 
   }, []);
-
- console.log(clients)
 
   return (
     <div className="bg-gray-500 flex flex-1 flex-col justify-center items-center">
       <div>
-        <h1 className="text-white pl-2 font-bold text-3xl">Welcome! {clients.firstName + " " + clients.lastName}</h1>
+        <h1 className="text-white pl-2 font-bold text-3xl">Welcome! {user.firstName + " " + user.lastName}</h1>
         <h2 className="text-white pl-2 font-semibold text-xl text-center">Your loans:</h2>
       </div>
       <div className="flex flex-wrap justify-center">
       {
-        clients.loans?.map(loan => <CardLoan key={loan.id} loan={loan} />)
+        user.loans?.map(loan => <CardLoan key={loan.id} loan={loan} />)
       }
       </div>
     </div>
