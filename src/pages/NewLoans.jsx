@@ -55,7 +55,7 @@ import { useEffect } from 'react';
                 navigate('/loans');
             })
             .catch(err => {
-                alert(err.data);
+                alert(err.response.data);
                 console.log(err)
             });
         }
@@ -80,7 +80,7 @@ import { useEffect } from 'react';
                             <hr className="my-6 sm:my-3"></hr>
                             <label className="uppercase text-sm font-bold opacity-70">Select loan</label>
                             <select className="p-3 mt-2 mb-4 w-full bg-slate-200 rounded uppercase text-sm font-bold opacity-70 sm:w-[90%] sm:p-2 sm:mb-3" defaultValue="1" name="name" onChange={handleInput}>
-                                <option value="1" disabled className="uppercase text-sm font-bold opacity-70">SELECT ACCOUNT</option>
+                                <option value="1" disabled className="uppercase text-sm font-bold opacity-70">SELECT LOAN</option>
                                 {
                                     loans?.map(loan => <option className="uppercase text-sm font-bold opacity-70" key={loan.name} value={loan.name}>{loan.name}</option>)
                                 }

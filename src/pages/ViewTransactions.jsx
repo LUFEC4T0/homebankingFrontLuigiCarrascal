@@ -43,8 +43,8 @@ const ViewTransactions = () => {
           <h1 className="text-white pl-2 font-bold text-3xl">Account transaction information: {account.number}</h1>
           <h2 className="text-white pl-2 font-semibold text-xl text-center">Your transactions:</h2>
         </div>
-        <div className='flex flex-wrap justify-center gap-8'>
-          <div className='flex flex-wrap justify-center shadow overflow-hidden rounded border-b sm:w-full'>
+        <div className='flex flex-wrap justify-center gap-8 w-full'>
+          <div className='flex flex-wrap justify-center shadow overflow-hidden rounded border-b sm:w-full w-[50%] h-[17rem]'>
             <table className="min-w-full bg-white">
               <thead className="bg-indigo-500 text-white">
                 <tr>
@@ -56,7 +56,14 @@ const ViewTransactions = () => {
               </thead>
               <tbody className="text-gray-700">
                 {
-                  account.transactions?.map(transacition => <tr key={account.id}> <td>{transacition.description}</td> <td>{transacition.type}</td> <td>{transacition.amount}</td> <td>{transacition.date}</td> </tr>)
+                  account.transactions?.slice().reverse().map(transacition => (
+                    <tr key={account.id}>
+                      <td>{transacition.description}</td>
+                      <td>{transacition.type}</td>
+                      <td>${transacition.amount.toLocaleString()}</td>
+                      <td>{transacition.date.substring(0, 10)}</td>
+                    </tr>
+                  ))
                 }
               </tbody>
             </table>

@@ -47,6 +47,9 @@ const Register = () => {
     return (
         <>
             <div className="bg-gray-500 flex flex-1 flex-col justify-center items-center">
+                <div>
+                <h1 className="font-bold text-5xl text-white p-5 bg-indigo-500 rounded-lg shadow-xl">Welcome to Banco Luigi!</h1>
+                </div>
                 <div className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl overflow-hidden sm:flex sm:px-2 sm:flex-col sm:justify-center sm:items-center sm:w-3/4 m-8">
                     <div className="md:flex w-full sm:flex">
                         <div className="hidden md:block w-1/2 bg-indigo-500 py-10 px-10">

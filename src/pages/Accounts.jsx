@@ -30,7 +30,6 @@ const Accounts = () => {
         })
         .catch(error => console.log(error));
     }, []);
-
 ;
 
   const handleAccounts = () => {
@@ -40,11 +39,15 @@ const Accounts = () => {
         }
     })
         .then(res => {
+            alert('Account created successfully!')
             console.log(res.data)
-            navigate('/accounts')
+            navigator('/accounts')
         })
-        .catch(err => console.log(token))
-}
+        .catch(err => {
+          alert(err.response.data)
+          console.log(err)
+        })
+}  
 
 
   return (

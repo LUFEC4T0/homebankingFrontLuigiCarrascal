@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import authActions from '../redux/actions/auth.actions';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 
 const Loans = () => {
 
@@ -38,6 +39,9 @@ const Loans = () => {
       {
         user.loans?.map(loan => <CardLoan key={loan.id} loan={loan} />)
       }
+      </div>
+      <div className="sm:py-3 py-2">
+        <Link to={`/formloan/`} className="bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white py-2 px-4 rounded-lg">Create new loan</Link>
       </div>
     </div>
   )

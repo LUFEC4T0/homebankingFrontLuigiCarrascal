@@ -9,7 +9,8 @@
 }
 
 .card-gold {
-  background-color: #ffd700;
+  box-shadow: #363e46 0px 5px 15px;
+  background-color: #aa9c4c;
   border-radius: 15px;
   color: white;
   width: 360px;
@@ -20,8 +21,9 @@
   justify-content: space-between;
 }
 
-.card {
-  background-color: #007bff;
+.card-silver{
+  box-shadow: #363e46 0px 5px 15px;
+  background-color: #94a2b3;
   border-radius: 15px;
   color: white;
   width: 360px;
@@ -31,6 +33,20 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+.card-titanium{
+  box-shadow: #363e46 0px 5px 15px;
+  background-color: #363e46;
+  border-radius: 15px;
+  color: white;
+  width: 360px;
+  height: 220px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .card .chip {
   background-color: #fff;
   width: 60px;

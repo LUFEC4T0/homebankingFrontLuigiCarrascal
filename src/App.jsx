@@ -1,8 +1,5 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-
 import Accounts from "./pages/Accounts";
 import Cards from "./pages/Cards";
 import Loans from "./pages/Loans";
@@ -16,7 +13,6 @@ import ViewTransactions from "./pages/ViewTransactions";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import NewTransactions from "./pages/NewTransactions";
-import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -24,7 +20,6 @@ import authActions from "./redux/actions/auth.actions";
 import { useSelector } from "react-redux";
 
 function App() {
-  const [isLoggedin, setIsLoggedIn] = useState(false);
   const token = localStorage.getItem('token');
   const user = useSelector((store) => store.authReducer.user);
   const dispatch = useDispatch();

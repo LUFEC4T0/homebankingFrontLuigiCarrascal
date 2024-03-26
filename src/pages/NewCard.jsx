@@ -24,7 +24,7 @@ const NewCard = () => {
         navigate("/cards");
       })
       .catch((err) => {
-        alert(err.data);
+        alert(err.response.data);
         console.log(err)
       });
   };
